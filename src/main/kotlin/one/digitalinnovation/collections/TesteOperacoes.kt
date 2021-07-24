@@ -12,9 +12,21 @@ fun main() {
     println("-----Filter for Salaries Grater than 2500 -----")
     salariesGrater2500.forEach { (println(it)) }
 
+    println("----- Count function -----")
+    println(String.format("Total of elements: %d", salary.count()))
+    println(String.format("Salary(ies) in a range of $2000 and $5000: %d",salary.count { it in 2000.0..5000.0}))
+
+    println("----- Find function -----")
+    println(String.format("Has a salary equals to $7000.0? %f", salary.find { it == 7000.0 }))
+    println(String.format("Has a salary equals to $4000.0? %.2f", salary.find { it == 4000.0 }))
+
+    println("----- Any function -----")
+    println(String.format("Has a salary equals to $4000.0? %b", salary.any { it == 4000.0 }))
+    println(String.format("Has a salary equals to $7000.0? %b", salary.any { it == 7000.0 }))
 
     println("---- Filtering an array if Strings -----")
     val names = arrayOf("Black Panter", "Thor", "Iron Man", "Loki", "Black Widow")
     val namesFiltered = names.filter { it.contains("Black") }
     namesFiltered.forEach{ println(it)}
+    println(names.any { it == "Loki"})
 }
